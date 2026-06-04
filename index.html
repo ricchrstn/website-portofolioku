@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizky Cristian S., S.Kom. | Professional Portfolio</title>
+    
+    <!-- Meta SEO & Optimization -->
+    <meta name="description" content="Portfolio of Rizky Cristian S., S.Kom., a Computer Science graduate specializing in Web Development (Laravel) and Mobile App Development (Flutter). Check out my projects and timeline.">
+    <meta name="keywords" content="Rizky Cristian, Portfolio, Web Developer, Android Developer, Laravel, Flutter, Computer Science Graduate">
+    <meta name="author" content="Rizky Cristian S.">
+    
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        },
+                        darkBg: '#090d16',
+                        darkCard: 'rgba(15, 23, 42, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GSAP for Smooth Professional Grade Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Animated Purple/Blue Gradient Background --> STYLING */
+        .premium-bg {
+            background: linear-gradient(-45deg, #090d16, #0f172a, #1e1b4b, #030712);
+            background-size: 400% 400%;
+            animation: gradientMove 18s ease infinite;
+        }
+        
+        .light .premium-bg {
+            background: linear-gradient(-45deg, #f8fafc, #f1f5f9, #e2e8f0, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientMove 18s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Styles matching Shadcn/UI standards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-nav {
+            background: rgba(9, 13, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .light .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.6);
+        }
+
+        /* Floating particles canvas container */
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Framer Motion-like interactive lift on hover */
+        .framer-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.25);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+        
+        .light .framer-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.15);
+            border-color: rgba(109, 40, 217, 0.3);
+        }
+
+        /* Interactive Timeline connection path */
+        .timeline-line {
+            background: linear-gradient(to bottom, #8b5cf6, #3b82f6, #ec4899);
+        }
+    </style>
+</head>
+<body class="premium-bg text-slate-200 dark:text-slate-100 min-h-screen relative overflow-x-hidden">
+
+    <!-- Canvas for Floating Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <!-- ========================================== -->
+        <!-- NAVIGATION COMPONENT (Header & Navbar)      -->
+        <!-- ========================================== -->
+        <header class="glass-nav sticky top-0 z-50 w-full transition-all duration-300">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="group flex items-center gap-2" title="Go to home">
+                    <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-brand-500/20 group-hover:scale-110 transition">R</span>
+                    <span class="text-lg font-bold tracking-tight text-slate-800 dark:text-white group-hover:text-brand-500 transition">Rizky Cristian</span>
+                </a>
+
+                <!-- Desktop Menu Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="text-brand-500 dark:text-brand-400 hover:scale-105 transition">Home</a>
+                    <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition">Projects</a>
+                    <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition">Experience</a>
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition">About</a>
+                    <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 transition block bg-brand-600 text-white px-4 py-2 rounded-lg hover:bg-brand-700">Contact</a>
+                </nav>
+
+                <!-- Action Button Controls -->
+                <div class="flex items-center gap-4">
+                    <!-- Light / Dark Mode Toggle Button (Fix accessibility warning with discernible text & title) -->
+                    <button id="theme-toggle" class="w-10 h-10 rounded-xl bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 flex items-center justify-center text-slate-800 dark:text-amber-400 transition cursor-pointer" aria-label="Toggle Theme" title="Toggle Theme">
+                        <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <!-- Mobile Menu Button (Resolved Edge Tool Diagnostic error with aria-label & title) -->
+                    <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl bg-slate-800/10 dark:bg-slate-800/50 flex items-center justify-center text-slate-800 dark:text-white" aria-label="Toggle Mobile Menu" title="Toggle Mobile Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 py-4 border-t border-white/5 bg-slate-950/95 dark:bg-slate-950/95 space-y-4">
+                <a href="#home" class="block text-slate-300 hover:text-white">Home</a>
+                <a href="#projects" class="block text-slate-300 hover:text-white">Projects</a>
+                <a href="#experience" class="block text-slate-300 hover:text-white">Experience</a>
+                <a href="#about" class="block text-slate-300 hover:text-white">About</a>
+                <a href="#contact" class="block text-white bg-brand-600 px-4 py-2 rounded-lg text-center">Contact</a>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <main class="flex-grow max-w-6xl mx-auto px-6 py-12 md:py-24 space-y-36">
+            
+            <!-- ========================================== -->
+            <!-- 1. HOME / HERO MODULE                      -->
+            <!-- ========================================== -->
+            <section id="home" class="min-h-[75vh] flex flex-col md:flex-row items-center justify-between gap-12 pt-6">
+                <!-- Intro Column -->
+                <div class="md:w-3/5 text-center md:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-600 dark:text-brand-400 uppercase bg-brand-500/10 rounded-full border border-brand-500/20">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Open to Career Opportunities
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-500 dark:from-brand-400 dark:to-indigo-300">Rizky Cristian S.</span>
+                    </h1>
+                    <!-- Custom Typing Animation target -->
+                    <div class="min-h-[40px] text-lg sm:text-2xl font-mono text-slate-700 dark:text-slate-300 font-medium flex justify-center md:justify-start items-center gap-1">
+                        <span class="text-brand-500">&gt;_</span>
+                        <span id="typing-text"></span>
+                        <span class="w-2.5 h-6 bg-brand-500 animate-pulse inline-block"></span>
+                    </div>
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                        A Computer Science Graduate passionate about building scalable, high-performance web applications using Laravel, HTML, CSS, JavaScript, and crafting elegant native mobile apps using Flutter.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="#projects" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-medium shadow-lg shadow-brand-500/20 transition hover:scale-105" title="Check portfolio projects">
+                            <i class="fa-solid fa-laptop-code mr-2"></i> View My Work
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 glass-card text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80 rounded-xl font-medium transition hover:scale-105" title="Go to contact">
+                            Let's Connect <i class="fa-solid fa-arrow-right ml-2 text-brand-500"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Avatar Column with Premium Glowing Glassmorphism Sphere -->
+                <div class="md:w-2/5 flex justify-center relative">
+                    <div class="absolute inset-0 bg-brand-500/10 dark:bg-brand-500/20 rounded-full blur-3xl w-72 h-72 mx-auto my-auto animate-pulse"></div>
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden glass-card p-3 border border-brand-500/30 flex items-center justify-center group">
+                        <div class="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-brand-900 to-indigo-900 dark:from-indigo-950 dark:to-slate-900 flex flex-col items-center justify-center shadow-inner">
+                            
+                            <!-- FOTO PROFIL UTAMA (Menggunakan spasi sesuai file asli kamu di Laragon) -->
+                            <img src="foto-profile.jpeg" alt="Rizky Cristian S., S.Kom." class="w-full h-full object-cover group-hover:scale-105 transition duration-500 absolute inset-0 z-10 animate-fade-in" onerror="this.style.display='none'; document.getElementById('profile-fallback').classList.remove('hidden');">
+                            
+                            <!-- Backup Tampilan/Fallback (Jika foto-profile.jpeg belum diletakkan di folder atau salah ketik) -->
+                            <div id="profile-fallback" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
+                                <div class="w-20 h-20 rounded-full bg-brand-500/10 flex items-center justify-center mb-6 text-brand-400 border border-brand-500/20">
+                                    <i class="fa-solid fa-graduation-cap text-3xl text-brand-500 dark:text-brand-400"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-white tracking-wider">S.Kom.</span>
+                                <span class="text-sm text-slate-400 mt-2">Computer Science Graduate</span>
+                            </div>
+
+                            <!-- Overlay Badge Nama Profesional (Selalu tampil di atas foto) -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 text-center z-20">
+                                <span class="text-sm font-bold text-white tracking-wide block">Rizky Cristian, S.Kom.</span>
+                                <span class="text-[10px] text-brand-400 font-mono tracking-wider block mt-0.5">COMPUTER SCIENCE GRADUATE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<!-- ========================================== -->
+            <!-- 2. PROJECT PORTFOLIO MODULE                -->
+            <!-- ========================================== -->
+            <section id="projects" class="scroll-mt-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Featured Projects
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 text-base">
+                        Here are some of my recent projects that showcase my skills and experience.
+                    </p>
+                </div>
+
+                <!-- 3-Column Grid matching image_22afc8.png -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- CARD 4: HKBP Church Inventory System -->
+                    <div class="bg-[#151d30] rounded-2xl overflow-hidden flex flex-col h-full border border-slate-800 hover:border-blue-500/50 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-[#0b111e] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500/70 inline-block"></span>
+                            </div>
+                        </div>
+                        <div class="aspect-video bg-[#0f1626] flex items-center justify-center p-4 border-b border-slate-800 bg-gradient-to-br from-purple-950 to-slate-900">
+                            <i class="fa-solid fa-church text-slate-700 text-5xl"></i>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-100 mb-2">HKBP Inventory System</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                                    Sistem manajemen barang gereja dengan fitur multi-role user tracking barang masuk/keluar, peminjaman, dan export data.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-5">
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">Laravel</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">MySQL</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">Bootstrap</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 pt-2">
+                                <a href="https://github.com/ricchrstn/HKBP-GEREJA-SETIA-MEKAR-INVENTORY-V2" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="https://github.com/ricchrstn/HKBP-GEREJA-SETIA-MEKAR-INVENTORY-V2" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 5: Kebunkita Market -->
+                    <div class="bg-[#151d30] rounded-2xl overflow-hidden flex flex-col h-full border border-slate-800 hover:border-blue-500/50 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-[#0b111e] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500/70 inline-block"></span>
+                            </div>
+                        </div>
+                        <div class="aspect-video bg-[#0f1626] flex items-center justify-center p-4 border-b border-slate-800 bg-gradient-to-br from-emerald-950 to-slate-900">
+                            <i class="fa-solid fa-seedling text-slate-700 text-5xl"></i>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-100 mb-2">Kebunkita Platform</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                                    Platform pertanian urban terintegrasi Web Backend Laravel dan Mobile Application menggunakan Flutter.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-5">
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">Laravel</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">Flutter</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">Firebase</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 pt-2">
+                                <a href="https://github.com/ricchrstn/Kebunkita-PETANI-DI-KOTA-" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="https://github.com/ricchrstn/Kebunkita-PETANI-DI-KOTA-" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 6: Doclab Website -->
+                    <div class="bg-[#151d30] rounded-2xl overflow-hidden flex flex-col h-full border border-slate-800 hover:border-blue-500/50 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="bg-[#0b111e] px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-red-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70 inline-block"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-green-500/70 inline-block"></span>
+                            </div>
+                        </div>
+                        <div class="aspect-video bg-[#0f1626] flex items-center justify-center p-4 border-b border-slate-800 bg-gradient-to-br from-blue-950 to-slate-900">
+                            <i class="fa-solid fa-hospital text-slate-700 text-5xl"></i>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-100 mb-2">Doclab Hospital Portal</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                                    Landing page rumah sakit responsif yang clean difokuskan pada optimalisasi UI/UX komponen.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-5">
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">HTML</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">CSS</span>
+                                    <span class="px-2.5 py-0.5 text-xs font-medium bg-slate-800 text-slate-300 rounded-md">JavaScript</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 pt-2">
+                                <a href="https://github.com/ricchrstn/doclab" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-brands fa-github"></i> Code
+                                </a>
+                                <a href="https://github.com/ricchrstn/doclab" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 py-2 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full transition text-xs font-medium">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+            <!-- ========================================== -->
+            <!-- 3. EXPERIENCE TIMELINE MODULE              -->
+            <!-- ========================================== -->
+            <section id="experience" class="scroll-mt-24">
+                <div class="text-center md:text-left mb-16">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight flex flex-col md:flex-row md:items-center gap-3 justify-center md:justify-start">
+                        <span class="text-brand-500 font-normal">💼</span> EXPERIENCE TIMELINE
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 text-lg">My professional journey, academic milestones, and areas of engineering expertise.</p>
+                </div>
+
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Vertical Timeline Line -->
+                    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 timeline-line rounded-full transform md:-translate-x-1/2"></div>
+                    
+                    <!-- Timeline Blocks Container -->
+                    <div class="space-y-12">
+                        
+                        <!-- Block 1: Magang -->
+                        <div class="timeline-block relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-950 border-4 border-brand-500 z-20 flex items-center justify-center transform -translate-x-1/2 shadow-lg shadow-brand-500/20">
+                                <i class="fa-solid fa-briefcase text-xs text-brand-500"></i>
+                            </div>
+                            <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right pr-4 text-left">
+                                <span class="inline-block px-3 py-1 text-xs font-bold text-brand-500 dark:text-brand-400 bg-brand-500/10 rounded-full mb-3">Internship</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">Pengalaman Magang Profesional</h3>
+                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Developer Intern | Software House / Public Office</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mendapatkan pengalaman praktis mengimplementasikan arsitektur database, memperbarui legacy system, serta mengamati lingkungan kerja developer profesional di lapangan secara langsung.
+                                </p>
+                            </div>
+                            <div class="hidden md:block w-[45%]"></div>
+                        </div>
+
+                        <!-- Block 2: Web Dev -->
+                        <div class="timeline-block relative flex flex-col md:flex-row-reverse items-start md:justify-between group">
+                            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-950 border-4 border-indigo-500 z-20 flex items-center justify-center transform -translate-x-1/2 shadow-lg shadow-indigo-500/20">
+                                <i class="fa-solid fa-code text-xs text-indigo-500"></i>
+                            </div>
+                            <div class="w-full md:w-[45%] pl-12 md:pl-0 pl-4 text-left">
+                                <span class="inline-block px-3 py-1 text-xs font-bold text-indigo-500 dark:text-indigo-400 bg-indigo-500/10 rounded-full mb-3">Web Development</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">Pengembangan Aplikasi Website</h3>
+                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Fullstack Laravel & PHP Projects</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mengembangkan berbagai solusi manajemen data berbasis web dengan kerangka kerja Laravel. Membangun model database yang optimal dengan relasi MySQL yang kompleks dan kueri yang cepat.
+                                </p>
+                            </div>
+                            <div class="hidden md:block w-[45%]"></div>
+                        </div>
+
+                        <!-- Block 3: Mobile Dev -->
+                        <div class="timeline-block relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-950 border-4 border-pink-500 z-20 flex items-center justify-center transform -translate-x-1/2 shadow-lg shadow-pink-500/20">
+                                <i class="fa-solid fa-mobile-screen-button text-xs text-pink-500"></i>
+                            </div>
+                            <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right pr-4 text-left">
+                                <span class="inline-block px-3 py-1 text-xs font-bold text-pink-500 dark:text-pink-400 bg-pink-500/10 rounded-full mb-3">Mobile Apps</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">Pengembangan Aplikasi Android & iOS</h3>
+                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Cross-Platform Flutter & Dart Development</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mempelajari arsitektur State Management Flutter, integrasi REST API, dan kustomisasi User Interface dinamis yang mulus serta memprioritaskan performa tinggi pada perangkat mobile berdaya rendah.
+                                </p>
+                            </div>
+                            <div class="hidden md:block w-[45%]"></div>
+                        </div>
+
+                        <!-- Block 4: Agile Scrum -->
+                        <div class="timeline-block relative flex flex-col md:flex-row-reverse items-start md:justify-between group">
+                            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-950 border-4 border-emerald-500 z-20 flex items-center justify-center transform -translate-x-1/2 shadow-lg shadow-emerald-500/20">
+                                <i class="fa-solid fa-people-group text-xs text-emerald-500"></i>
+                            </div>
+                            <div class="w-full md:w-[45%] pl-12 md:pl-0 pl-4 text-left">
+                                <span class="inline-block px-3 py-1 text-xs font-bold text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 rounded-full mb-3">Methodology</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">Kolaborasi Tim Menggunakan Agile Scrum</h3>
+                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Sprint Cycles, Retrospectives, & Git Versioning</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Berpengalaman bekerja dalam tim yang disiplin menggunakan metodologi Agile Scrum. Terbiasa mengelola board tugas dengan Trello / Jira dan membagi branch fitur di Git repositori secara rapi.
+                                </p>
+                            </div>
+                            <div class="hidden md:block w-[45%]"></div>
+                        </div>
+
+                        <!-- Block 5: AI Research -->
+                        <div class="timeline-block relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-slate-900 dark:bg-slate-950 border-4 border-cyan-500 z-20 flex items-center justify-center transform -translate-x-1/2 shadow-lg shadow-cyan-500/20">
+                                <i class="fa-solid fa-brain text-xs text-cyan-500"></i>
+                            </div>
+                            <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right pr-4 text-left">
+                                <span class="inline-block px-3 py-1 text-xs font-bold text-cyan-500 dark:text-cyan-400 bg-cyan-500/10 rounded-full mb-3">Research & AI</span>
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800 dark:text-white">Penelitian Sistem Kecerdasan Buatan (AI)</h3>
+                                <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-2">Decision Support Systems & Intelligent Algorithms</p>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mengintegrasikan kecerdasan komputasional ke dalam aplikasi bisnis, seperti integrasi algoritma SPK TOPSIS untuk menentukan prioritas pengambilan keputusan strategis.
+                                </p>
+                            </div>
+                            <div class="hidden md:block w-[45%]"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- 4. ABOUT ME MODULE                         -->
+            <!-- ========================================== -->
+<section id="about" class="scroll-mt-24 my-20">
+                <div class="glass-card p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                    <div class="absolute -right-24 -top-24 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -left-24 -bottom-24 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-start">
+                        <div class="w-full lg:w-1/2 space-y-6">
+                            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white flex items-center gap-3">
+                                <span class="w-8 h-1 bg-brand-500 rounded-full"></span> About Me
+                            </h2>
+                            <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-base md:text-lg font-light">
+                                <p class="font-bold text-slate-900 dark:text-white text-xl">
+                                    Hi, I'm Rizky Cristian S., S.Kom.
+                                </p>
+                                <p>
+                                    I'm a recent Computer Science graduate with a strong interest in <strong class="text-brand-600 dark:text-brand-400 font-medium">Web Development</strong> and <strong class="text-indigo-600 dark:text-indigo-400 font-medium">Mobile Application Development</strong>. I enjoy building digital solutions, exploring new technologies, and transforming ideas into functional and user-friendly applications.
+                                </p>
+                                <p>
+                                    Throughout my academic career, I've worked on several projects, including inventory management systems, web-based applications, and mobile applications. My primary expertise lies in developing web applications using <strong class="text-slate-900 dark:text-white border-b border-brand-500/30">Laravel</strong>, leveraging HTML, CSS, JavaScript, and Flutter to create responsive and engaging user experiences. For database management, I have experience working with MySQL and Firebase.
+                                </p>
+                                <p>
+                                    I'm passionate about software development, problem-solving, and continually improving my technical skills to build efficient, scalable, and impactful solutions. As a recent graduate, I'm currently seeking opportunities as a <strong class="text-brand-600 dark:text-brand-400 font-medium">Junior Developer, Web Developer, or Android Developer</strong>, where I can contribute, gain valuable industry experience, and continue to grow both professionally and technically.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/2 flex flex-col justify-start">
+                            <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
+                                🛠️ Expertise & Skill Stack
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-4">
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-brands fa-laravel text-3xl text-orange-500 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">Web Framework</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">Laravel</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-solid fa-mobile-screen text-3xl text-cyan-400 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">Mobile SDK</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">Flutter</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-solid fa-database text-3xl text-blue-500 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">Database</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">MySQL</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-brands fa-js text-3xl text-yellow-400 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">Scripting</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">JavaScript</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-solid fa-fire text-3xl text-amber-500 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">BaaS Platform</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">Firebase</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-950/20 dark:bg-slate-950/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-brand-500/30 transition shadow-sm">
+                                    <i class="fa-brands fa-git-alt text-3xl text-red-500 w-8 text-center"></i>
+                                    <div>
+                                        <p class="text-xs text-slate-500">Version Control</p>
+                                        <p class="text-sm font-bold text-slate-800 dark:text-white">Git Versioning</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="scroll-mt-24 pb-20">
+                <div class="glass-card p-8 md:p-12 rounded-3xl text-center max-w-3xl mx-auto relative overflow-hidden">
+                    <div class="absolute -left-12 -top-12 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl"></div>
+
+                    <div class="relative z-10 space-y-6">
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">🔗 Connect with Me</h2>
+                        <p class="text-slate-600 dark:text-slate-400 max-w-md mx-auto text-sm md:text-base">
+                            Feel free to connect with me through social media platforms below.
+                        </p>
+
+                        <div class="flex flex-wrap items-center justify-center gap-4 py-4">
+                            <a href="https://www.linkedin.com/in/rickychristians/" target="_blank" rel="noopener noreferrer" class="hover:scale-105 active:scale-95 transition duration-300" title="Connect with me on LinkedIn">
+                                <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" class="rounded-lg shadow-md h-9" />
+                            </a>
+                            <a href="https://www.instagram.com/rickychristians/" target="_blank" rel="noopener noreferrer" class="hover:scale-105 active:scale-95 transition duration-300" title="Follow me on Instagram">
+                                <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" class="rounded-lg shadow-md h-9" />
+                            </a>
+                            <a href="https://t.me/rickychristians" target="_blank" rel="noopener noreferrer" class="hover:scale-105 active:scale-95 transition duration-300" title="Send me a message on Telegram">
+                                <img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" class="rounded-lg shadow-md h-9" />
+                            </a>
+                            <a href="https://www.tiktok.com/@rickychristians" target="_blank" rel="noopener noreferrer" class="hover:scale-105 active:scale-95 transition duration-300" title="Check out my TikTok profile">
+                                <img src="https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white" alt="TikTok" class="rounded-lg shadow-md h-9" />
+                            </a>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-300 text-sm">
+                            <i class="fa-solid fa-location-dot text-indigo-500"></i>
+                            <span>Bekasi, West Java, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========================================== -->
+        <!-- 6. FOOTER COMPONENT                        -->
+        <!-- ========================================== -->
+        <!-- FOOTER -->
+<footer class="text-center py-8 text-xs text-slate-500 dark:text-slate-600 border-t border-slate-200 dark:border-white/5 bg-slate-950/20 dark:bg-slate-950/30">
+
+    <p class="mb-2">
+        © 2026 Rizky Cristian S. All Rights Reserved.
+    </p>
+
+</footer>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT: LOGIC & ENGINE ASSEMBLY        -->
+    <!-- ========================================== -->
+    <script>
+        // 1. Dark/Light Theme Switcher Logic
+        const htmlElement = document.documentElement;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        // Check if user has saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeIcon.className = 'fa-solid fa-moon text-lg text-amber-400';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                themeIcon.className = 'fa-solid fa-sun text-lg text-amber-500';
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                themeIcon.className = 'fa-solid fa-moon text-lg text-amber-400';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 2. Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3. Lightweight Floating Canvas Particles (Performance-Optimized)
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x;
+                this.y = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+                if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+                this.x += this.dx;
+                this.y += this.dy;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            let particleCount = (canvas.width * canvas.height) / 12000;
+            if (particleCount > 80) particleCount = 80; // Limit for performance
+            
+            for (let i = 0; i < particleCount; i++) {
+                let size = Math.random() * 2 + 0.5;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let dx = (Math.random() * 0.3) - 0.15;
+                let dy = (Math.random() * 0.3) - 0.15;
+                // Elegant purple-indigo particles that fit both themes
+                let color = htmlElement.classList.contains('dark') ? 'rgba(139, 92, 246, 0.18)' : 'rgba(109, 40, 217, 0.08)';
+                particlesArray.push(new Particle(x, y, dx, dy, size, color));
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                // Dynamically adjust color opacity based on current active theme
+                particlesArray[i].color = document.documentElement.classList.contains('dark') 
+                    ? 'rgba(139, 92, 246, 0.18)' 
+                    : 'rgba(109, 40, 217, 0.08)';
+                particlesArray[i].update();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
+
+        // 4. Custom Typing Role-Play Text Engine
+        const typingRoles = ["Computer Science Graduate.", "Laravel Fullstack Developer.", "Flutter Mobile Developer.", "Agile Scrum Team Player."];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deleteSpeed = 50;
+        const pauseTime = 1800;
+
+        function handleTyping() {
+            const currentRole = typingRoles[roleIndex];
+            const targetEl = document.getElementById('typing-text');
+            
+            if (isDeleting) {
+                targetEl.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetEl.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(handleTyping, pauseTime);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % typingRoles.length;
+                setTimeout(handleTyping, 400);
+            } else {
+                setTimeout(handleTyping, isDeleting ? deleteSpeed : typingSpeed);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(handleTyping, 800);
+        });
+
+        // 5. GSAP-powered Premium Interactive Elements & Scroll Reveal
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Header / Hero load animations
+        gsap.from("#home h1", { opacity: 0, y: 30, duration: 1, ease: "power2.out" });
+        gsap.from("#home p, #home .inline-flex, #home div.min-h-\\[40px\\]", { opacity: 0, y: 20, duration: 1, delay: 0.2, stagger: 0.1, ease: "power2.out" });
+        gsap.from("#home a", { opacity: 0, scale: 0.9, duration: 0.8, delay: 0.5, stagger: 0.1, ease: "back.out(1.7)" });
+
+        // Projects ScrollTrigger reveal
+        gsap.from("#projects .glass-card", {
+            scrollTrigger: {
+                trigger: "#projects",
+                start: "top 80%",
+            },
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Timeline slide-up entries
+        gsap.utils.toArray('.timeline-block').forEach((block) => {
+            gsap.from(block, {
+                scrollTrigger: {
+                    trigger: block,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // About & Contact card reveal
+        gsap.from("#about .glass-card, #contact .glass-card", {
+            scrollTrigger: {
+                trigger: "#about",
+                start: "top 85%",
+            },
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+</html>
