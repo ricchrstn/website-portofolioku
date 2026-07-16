@@ -1,8 +1,8 @@
-# Technical Overview — devit-folio
+# Technical Overview — Rizky Cristian S - Portofolio
 
 ## Project Summary
 
-A personal portfolio website for **Devit Nur Azaqi**, a mobile software engineer. The site is a single-page application (SPA) built with React + TypeScript, styled with Tailwind CSS and shadcn/ui, and bundled with Vite. It showcases projects, a career timeline, bio, and contact information with scroll-driven animations powered by Framer Motion.
+A personal portfolio website for **Rizky Cristian S**, a mobile software engineer. The site is a single-page application (SPA) built with React + TypeScript, styled with Tailwind CSS and shadcn/ui, and bundled with Vite. It showcases projects, a career timeline, bio, and contact information with scroll-driven animations powered by Framer Motion.
 
 ---
 

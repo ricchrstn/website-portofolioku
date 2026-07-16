@@ -1,4 +1,4 @@
-# devit-folio
+# Rizky Cristian S - Portofolio
 
 ## Project Snapshot
 

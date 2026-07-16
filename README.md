@@ -1,6 +1,6 @@
-# devit-folio
+# Rizky Cristian S - Portofolio
 
-Personal portfolio SPA for Devit Nur Azaqi, a mobile-first Software Engineer with Flutter, React Native, web/full-stack, and QA experience. Built with React 19, TypeScript, Vite, Tailwind CSS, shadcn/ui, Framer Motion, and Lenis.
+Personal portfolio SPA for Rizky Cristian S, a mobile-first Software Engineer with Flutter, React Native, web/full-stack, and QA experience. Built with React 19, TypeScript, Vite, Tailwind CSS, shadcn/ui, Framer Motion, and Lenis.
 
 ## Quick Start
 

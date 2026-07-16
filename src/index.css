@@ -22,7 +22,6 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* WARNA AKSEN: Diubah ke Biru Langit (Sky Blue) yang fresh */
     --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
 
@@ -44,7 +43,6 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Fluid Typography Scale */
     --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
     --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
     --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
@@ -57,209 +55,67 @@
     --text-6xl: clamp(4rem, 2.5rem + 7.5vw, 8rem);
     --text-7xl: clamp(5rem, 3rem + 10vw, 12rem);
     --text-8xl: clamp(6rem, 3.5rem + 12.5vw, 16rem);
-
-    /* Fluid Spacing Scale */
-    --space-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
-    --space-sm: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
-    --space-md: clamp(0.75rem, 0.6rem + 0.75vw, 1.25rem);
-    --space-lg: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-    --space-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
-    --space-2xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-    --space-3xl: clamp(3rem, 2rem + 5vw, 6rem);
-    --space-4xl: clamp(4rem, 2.5rem + 7.5vw, 8rem);
   }
 
   .dark {
-    /* BACKGROUND SEKARANG DIUBAH KE CHARCOAL / ABU-ABU GELAP JAUH DARI WARNA BIRU */
     --background: 0 0% 8%;
     --foreground: 0 0% 95%;
-
     --card: 0 0% 11%;
     --card-foreground: 0 0% 95%;
-
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 95%;
-
     --primary: 0 0% 95%;
     --primary-foreground: 0 0% 8%;
-
     --secondary: 0 0% 18%;
     --secondary-foreground: 0 0% 95%;
-
     --muted: 0 0% 13%;
     --muted-foreground: 0 0% 63%;
-
     --accent: 199 89% 48%;
     --accent-foreground: 0 0% 8%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
-
     --border: 0 0% 16%;
     --input: 0 0% 16%;
     --ring: 199 89% 48%;
-
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 0 0% 95%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 13%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 199 89% 48%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    /* Font body diubah ke font modern, netral, dan super clean */
     font-family: "Geist Sans", "Inter", sans-serif;
     cursor: default;
     overflow-x: hidden;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-size-adjust: 100%;
   }
 
-  /* Support for iOS safe areas */
-  @supports (padding: env(safe-area-inset-left)) {
-    body {
-      padding-left: env(safe-area-inset-left);
-      padding-right: env(safe-area-inset-right);
-    }
-  }
-
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    /* Font heading menggunakan Syne agar terlihat artsy & berani */
+  h1, h2, h3, h4, h5, h6 {
     font-family: "Syne", "Sora", sans-serif;
     font-weight: 800;
   }
 }
 
 @layer utilities {
-  /* KUSTOMISASI FONT TANPA MERUSAK CLASS DI REACT */
-  
-  .font-display {
-    /* Diubah ke 'Syne' agar judul besar terkesan modern & tidak pasaran */
-    font-family: "Syne", "Sora", sans-serif;
-  }
+  .font-display { font-family: "Syne", "Sora", sans-serif; }
+  .font-serif-italic { font-family: "Instrument Serif", "Playfair Display", serif; font-style: italic; }
+  .font-body { font-family: "Geist Sans", "Inter", sans-serif; }
 
-  .font-serif-italic {
-    /* Diubah ke 'Instrument Serif' yang jauh lebih estetik & editorial */
-    font-family: "Instrument Serif", "Playfair Display", serif;
-    font-style: italic;
-  }
-
-  .font-body {
-    font-family: "Geist Sans", "Inter", sans-serif;
-  }
-
-  /* Touch manipulation for better mobile UX */
-  .touch-manipulation {
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Smooth text rendering */
-  .smooth-text {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  /* Prevent text size adjustment on mobile */
-  .fixed-text-size {
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-
-  /* Fluid typography utilities */
-  .text-xs-fluid {
-    font-size: var(--text-xs);
-  }
-
-  .text-sm-fluid {
-    font-size: var(--text-sm);
-  }
-
-  .text-base-fluid {
-    font-size: var(--text-base);
-  }
-
-  .text-lg-fluid {
-    font-size: var(--text-lg);
-  }
-
-  .text-xl-fluid {
-    font-size: var(--text-xl);
-  }
-
-  .text-2xl-fluid {
-    font-size: var(--text-2xl);
-  }
-
-  .text-3xl-fluid {
-    font-size: var(--text-3xl);
-  }
-
-  .text-4xl-fluid {
-    font-size: var(--text-4xl);
-  }
-
-  .text-5xl-fluid {
-    font-size: var(--text-5xl);
-  }
-
-  .text-6xl-fluid {
-    font-size: var(--text-6xl);
-  }
-
-  .text-7xl-fluid {
-    font-size: var(--text-7xl);
-  }
-
-  .text-8xl-fluid {
-    font-size: var(--text-8xl);
-  }
-
-  /* Special sizes */
-  .text-marquee {
-    font-size: clamp(1.5rem, 6vw, 5rem);
-  }
+  .text-xs-fluid { font-size: var(--text-xs); }
+  .text-sm-fluid { font-size: var(--text-sm); }
+  .text-base-fluid { font-size: var(--text-base); }
+  .text-lg-fluid { font-size: var(--text-lg); }
+  .text-xl-fluid { font-size: var(--text-xl); }
+  .text-2xl-fluid { font-size: var(--text-2xl); }
+  .text-3xl-fluid { font-size: var(--text-3xl); }
+  .text-4xl-fluid { font-size: var(--text-4xl); }
+  .text-5xl-fluid { font-size: var(--text-5xl); }
+  .text-6xl-fluid { font-size: var(--text-6xl); }
+  .text-7xl-fluid { font-size: var(--text-7xl); }
+  .text-8xl-fluid { font-size: var(--text-8xl); }
+  .text-marquee { font-size: clamp(1.5rem, 6vw, 5rem); }
 }
 
 /* Custom cursor */
@@ -279,15 +135,9 @@
   transition: opacity 0.3s ease;
 }
 
-.custom-cursor.visible {
-  opacity: 1;
-}
+.custom-cursor.visible { opacity: 1; }
 
-/* Nav link hover */
-.nav-link {
-  position: relative;
-}
-
+.nav-link { position: relative; }
 .nav-link::after {
   content: "";
   position: absolute;
@@ -300,20 +150,14 @@
   transform-origin: right;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-/* Marquee */
 @keyframes marquee {
-  0 {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .marquee-track {
@@ -321,24 +165,14 @@
   animation: marquee 8s linear infinite;
 }
 
-/* Hero background effects */
 .hero-noise-texture {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* Gradasi Latar Belakang - Diposisikan agar lembut & menyatu */
 .hero-accent-blob {
-  background: radial-gradient(
-    circle,
-    hsl(var(--accent) / 0.12) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, hsl(var(--accent) / 0.12) 0%, transparent 70%);
 }
 
 .hero-muted-blob {
-  background: radial-gradient(
-    circle,
-    hsl(var(--muted-foreground) / 0.08) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, hsl(var(--muted-foreground) / 0.08) 0%, transparent 70%);
 }

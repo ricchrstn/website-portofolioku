@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://itsdevit.web.id/sitemap.xml
+Sitemap: https://https://ricchrstn.github.io/website-portofolioku//sitemap.xml

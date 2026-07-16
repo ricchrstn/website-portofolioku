@@ -1,4 +1,4 @@
-import devitImg from "@/assets/rcs-me.jpeg"; // Silakan ganti path asset ini dengan foto Anda jika sudah ada
+import rcsImg from "@/assets/rizky-cristian.jpeg"; // Silakan ganti path asset ini dengan foto Anda jika sudah ada
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Code2, Smartphone, Database } from "lucide-react";
 import { useRef } from "react";
@@ -97,7 +97,7 @@ const About = () => {
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
                 <img
-                  src={devitImg}
+                  src={rcsImg}
                   alt="Rizky Cristian S"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"

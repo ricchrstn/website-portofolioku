@@ -165,7 +165,8 @@ const Career = () => {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: [0.16, 1, 0.3, 1],
+        // Tambahkan "as const" di akhir array
+        ease: [0.16, 1, 0.3, 1] as const, 
       },
     },
   };
