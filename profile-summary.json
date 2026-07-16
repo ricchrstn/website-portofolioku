@@ -1,0 +1,256 @@
+{
+  "name": "Devit Nur Azaqi",
+  "headline": "Software Engineer with strong mobile development experience and growing web/full-stack capability",
+  "location": {
+    "city": "Purwokerto",
+    "province": "Central Java",
+    "country": "Indonesia"
+  },
+  "contact": {
+    "email": "devitazaqi@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/devitnurazaqi/",
+    "github": "https://github.com/devvNA",
+    "instagram": "https://www.instagram.com/devit.na/"
+  },
+  "professionalSummary": "Software Engineer based in Purwokerto, Central Java. Information Systems graduate from Telkom University with a GPA of 3.87/4.00, Cum Laude. Experienced in building cross-platform mobile applications with Flutter and React Native, with expanding web and full-stack experience using React, Vue.js, Next.js, Vite, and Laravel. Focused on clean UI implementation, REST API integration, debugging, feature validation, maintainable architecture, and reliable client-server communication.",
+  "positioning": {
+    "primaryRole": "Software Engineer",
+    "coreStrength": "Mobile Development",
+    "expandedCapabilities": [
+      "Web Development",
+      "Full-Stack Development",
+      "REST API Integration",
+      "Database-backed Applications",
+      "Manual QA Testing",
+      "Technical Documentation"
+    ],
+    "summary": "Mobile-first Software Engineer who also builds modern web and full-stack applications using React ecosystem, Vue.js, Laravel, and database/backend services."
+  },
+  "education": {
+    "institution": "Telkom University",
+    "degree": "Information Systems",
+    "gpa": "3.87/4.00",
+    "honor": "Cum Laude"
+  },
+  "technicalSkills": {
+    "mobile": [
+      "Flutter",
+      "Dart",
+      "React Native",
+      "GetX",
+      "BLoC",
+      "Riverpod",
+      "Redux",
+      "SQLite",
+      "Bluetooth printer integration"
+    ],
+    "frontendWeb": [
+      "React",
+      "Next.js",
+      "Vite",
+      "Vue.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "shadcn/ui"
+    ],
+    "backendAndData": [
+      "Laravel",
+      "PHP",
+      "REST API",
+      "Supabase",
+      "Firebase",
+      "PostgreSQL",
+      "MySQL"
+    ],
+    "qualityAssurance": [
+      "Manual Testing",
+      "Test Case Documentation",
+      "Bug Reporting",
+      "Summary Report",
+      "Feature Validation",
+      "Responsive Testing"
+    ],
+    "tools": [
+      "Git",
+      "Postman",
+      "Figma",
+      "Google Sheets",
+      "Google Docs"
+    ]
+  },
+  "workExperience": [
+    {
+      "title": "Mobile Developer",
+      "company": "Hugo Studio",
+      "location": "Purwokerto",
+      "period": "Jul 2025 - Nov 2025",
+      "summary": "Developed savings and loan cooperative applications with financial modules and role-based workflows.",
+      "technologies": ["Flutter", "Dart", "GetX", "REST APIs", "Git", "Postman"],
+      "highlights": ["Reduced code duplication by 45% through modularization"]
+    },
+    {
+      "title": "Staff Programmer",
+      "company": "PT Arkamaya",
+      "location": "Bandung",
+      "period": "May 2025 - Sep 2025",
+      "summary": "Built POS and social media applications for active tenants using React Native and Flutter.",
+      "technologies": ["React Native", "JavaScript", "Redux", "Flutter", "Supabase", "PostgreSQL"],
+      "highlights": ["Improved screen load time by 40% through optimized UI rendering"]
+    },
+    {
+      "title": "Flutter Developer",
+      "company": "CV Satria Tech",
+      "location": "Purwokerto",
+      "period": "Aug 2023 - Oct 2024",
+      "summary": "Built mobile commerce and operational apps with Laravel and Supabase integration.",
+      "technologies": ["Flutter", "Dart", "Firebase", "Laravel", "PHP", "REST APIs"],
+      "highlights": ["Improved data synchronization reliability by 40%", "Optimized ordering flow by 25%"]
+    },
+    {
+      "title": "Teaching Assistant",
+      "company": "Telkom University",
+      "location": "Purwokerto",
+      "period": "Sep 2023 - Jan 2024",
+      "summary": "Supported Mobile Programming education through learning materials, mentoring, and practical guidance.",
+      "technologies": ["Flutter", "Dart", "Teaching", "Mentoring"],
+      "highlights": ["Helped students understand mobile programming concepts"]
+    },
+    {
+      "title": "Apps Developer",
+      "company": "Kampus Gratis",
+      "location": "South Jakarta",
+      "period": "Feb 2023 - Jun 2023",
+      "summary": "Developed LMS modules for multiple study programs and contributed to Agile development cycles.",
+      "technologies": ["Flutter", "Dart", "LMS", "Agile", "Figma", "Git"],
+      "highlights": ["Reduced bugs by 30%", "Maintained PR error rate below 3%"]
+    }
+  ],
+  "projects": {
+    "mobile": [
+      {
+        "name": "Cuci-Kuy",
+        "type": "Laundry Cashier App",
+        "technologies": ["Flutter", "SQLite", "Bluetooth"],
+        "highlights": ["Offline-first", "Bluetooth printer", "WhatsApp receipt sharing"]
+      },
+      {
+        "name": "KSP Makarya",
+        "type": "Cooperative Management App",
+        "technologies": ["Flutter", "Laravel", "MySQL", "OneSignal"],
+        "highlights": ["Role-based approval", "Member management", "Financial modules"]
+      },
+      {
+        "name": "HR Connect",
+        "type": "Mobile HR Platform",
+        "technologies": ["Flutter", "Supabase"],
+        "highlights": ["GPS attendance", "Leave management", "Approval workflow"]
+      },
+      {
+        "name": "Arkapos",
+        "type": "Point of Sale System",
+        "technologies": ["React Native", "Supabase", "Redux", "PostgreSQL"],
+        "highlights": ["POS", "Thermal printer", "Inventory management"]
+      },
+      {
+        "name": "Simpus KLU",
+        "type": "Health Clinic Management",
+        "technologies": ["Flutter", "PHP", "Laravel", "MySQL"],
+        "highlights": ["EMR integration", "Queue management"]
+      },
+      {
+        "name": "POS Kita",
+        "type": "Offline-first POS App",
+        "technologies": ["Flutter", "BLoC", "SQLite", "Material Design 3", "n8n"],
+        "highlights": ["Offline-first", "Bluetooth printer", "Barcode scanner", "WhatsApp report automation"]
+      },
+      {
+        "name": "Plantix",
+        "type": "Agriculture Management App",
+        "technologies": ["Flutter", "Supabase", "PostgreSQL"],
+        "highlights": ["Farm scheduling", "E-commerce store"]
+      },
+      {
+        "name": "Travelly",
+        "type": "Travel Booking Platform",
+        "technologies": ["Flutter", "BLoC", "Google Maps"],
+        "highlights": ["Midtrans payment", "Real-time booking"]
+      },
+      {
+        "name": "MV Shop",
+        "type": "Internal Operations & Sales App",
+        "technologies": ["Flutter", "Laravel", "MySQL", "Firebase"],
+        "highlights": ["E-commerce", "Stock management", "Order operations"]
+      },
+      {
+        "name": "Kampus Gratis",
+        "type": "Education Platform",
+        "technologies": ["Flutter", "Laravel", "AWS S3"],
+        "highlights": ["Video streaming", "Certificates", "Learning progress"]
+      }
+    ],
+    "webAndFullStack": [
+      {
+        "name": "Inventario",
+        "type": "Warehouse & Store Management",
+        "technologies": ["Laravel 12", "React", "MySQL", "REST API"],
+        "highlights": ["Inventory", "Warehouse", "Store management"]
+      },
+      {
+        "name": "D'NEWS",
+        "type": "Neo-brutalist News Portal",
+        "url": "https://dnews.portodev.web.id/",
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS v4", "shadcn/ui", "GNews API"],
+        "highlights": ["News portal", "GNews API", "Neo-brutalist UI"]
+      },
+      {
+        "name": "MyDesa",
+        "type": "Digital Village Website",
+        "url": "https://mydesa.portodev.web.id/",
+        "technologies": ["Laravel 12", "Vue 3", "MySQL", "Tailwind CSS"],
+        "highlights": ["Full-stack", "Village profile", "CMS-style content"]
+      },
+      {
+        "name": "MyLux",
+        "type": "Luxury Beauty Brand SPA",
+        "url": "https://mylux.portodev.web.id/",
+        "technologies": ["React 18", "Vite", "Tailwind CSS", "SPA"],
+        "highlights": ["Luxury UI", "Responsive SPA", "Brand experience"]
+      },
+      {
+        "name": "POS Sekarlangit",
+        "type": "Retail Point of Sale",
+        "url": "https://sekarlangit-pos.portodev.web.id/login",
+        "technologies": ["Laravel", "React", "MySQL", "REST API"],
+        "highlights": ["Point of Sale", "Retail", "Family business operations"]
+      }
+    ],
+    "qualityAssurance": [
+      {
+        "name": "Company Profile QA",
+        "type": "Manual QA Testing",
+        "scope": ["Landing page", "CMS", "Login", "Content CRUD", "Publish/unpublish flow", "Responsive testing", "Broken link/image checking"],
+        "deliverables": ["Test Case Document", "Bug Report", "Summary Report"],
+        "tools": ["Google Sheets", "Google Docs", "Manual browser testing"]
+      }
+    ]
+  },
+  "documents": {
+    "cv": "https://drive.google.com/drive/folders/1LBikNUREEVwR1hsi85QRSbUzQdF8gij0?usp=sharing",
+    "certificates": "https://drive.google.com/drive/folders/1kGd9nTrdREC3jRWBMyclPNeImWbiUYe0?usp=sharing"
+  },
+  "seoProfile": {
+    "title": "Devit Nur Azaqi | Software Engineer Portfolio",
+    "keywords": [
+      "Software Engineer Indonesia",
+      "Mobile Software Engineer",
+      "Flutter Developer",
+      "React Native Developer",
+      "React Developer",
+      "Vue.js Developer",
+      "Next.js Developer",
+      "Laravel Developer",
+      "Full-Stack Developer"
+    ]
+  }
+}

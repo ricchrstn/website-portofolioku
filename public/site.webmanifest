@@ -1,0 +1,17 @@
+{
+    "name": "Devit Nur Azaqi — Mobile Software Engineer",
+    "short_name": "Devit",
+    "description": "Mobile software engineer portfolio — Flutter, React Native, iOS & Android",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#121226",
+    "theme_color": "#121226",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}
