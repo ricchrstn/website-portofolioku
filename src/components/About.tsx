@@ -1,4 +1,4 @@
-import rcsImg from "@/assets/rizky-cristian.jpeg"; // Silakan ganti path asset ini dengan foto Anda jika sudah ada
+import rcsImg from "@/assets/rizky-cristian.jpg"; // Silakan ganti path asset ini dengan foto Anda jika sudah ada
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Code2, Smartphone, Database } from "lucide-react";
 import { useRef } from "react";
